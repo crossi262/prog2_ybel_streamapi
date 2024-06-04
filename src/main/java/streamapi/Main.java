@@ -40,7 +40,7 @@ public class Main {
      */
     public static Integer students(List<Student> studentList) {
         return studentList.stream()
-                          .mapToInt(Student::getEcts)
+                          .mapToInt(Student::cps)
                           .sum();
     }
 
