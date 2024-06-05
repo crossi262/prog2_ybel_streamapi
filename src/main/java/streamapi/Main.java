@@ -2,6 +2,7 @@ package streamapi;
 
 import java.io.InputStream;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /** Starter for the stream api task. */
 public class Main {
@@ -17,6 +18,7 @@ public class Main {
         // Task II: Set of ECTS of all IFM students
 
         // Task III: Random
+        System.out.println(random());
 
         // Task IV+V: Resources
 
@@ -56,8 +58,11 @@ public class Main {
      * @return List of ten random integers (between 0 and 10)
      */
     public static List<Integer> random() {
-        // TODO
-        throw new UnsupportedOperationException();
+    Random random = new Random();
+    return random.ints(0, 10)  // Generiert eine unendliche Stream von zufälligen Integers zwischen 0 (inklusive) und 10 (exklusive)
+            .limit(10)  // Begrenzt die Anzahl der generierten Zahlen auf 10
+            .boxed()  // Wandelt die Integers in Integer-Objekte um, um sie in einer List<Integer> zu sammeln
+            .collect(Collectors.toList());  // Sammelt die zufälligen Integers in einer Liste und gibt sie zurück
     }
 
     /**
